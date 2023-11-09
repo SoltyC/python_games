@@ -1,3 +1,5 @@
+# bug: press same letter and still correct. can be abused to skip letters in a word to get it correct.
+
 import random
 
 HANGMAN_PICS = ['''
