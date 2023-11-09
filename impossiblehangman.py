@@ -60,28 +60,34 @@ def displayBoard(missedLetters, correctLetters, secretWord):
     print()
     print()
 
-print('H A N G M A N AVIATION EDITION')
-missedLetters = ''
-correctLetters = ''
-secretWord = getRandomWord(words)
-gameIsDone = False
+def main():
+    print('H A N G M A N AVIATION EDITION')
+    missedLetters = ''
+    correctLetters = ''
+    secretWord = getRandomWord(words)
+    gameIsDone = False
 
-while True:
-    displayBoard(missedLetters, correctLetters, secretWord)
-    print('Hey! What letter is next?')
-    guess = input()
-    if len(guess) > 0 and guess in secretWord:
-        correctLetters = correctLetters + guess
-        print('You got the letter correct!')
-        if len(secretWord) == len(correctLetters):
-            print('Oh my god! You are so good at guessing aircraft stuff. You are a good person!')
-            break
+    while True:
+        displayBoard(missedLetters, correctLetters, secretWord)
+        print('Hey! What letter is next?')
+        guess = input()
+        if len(guess) > 0 and guess in secretWord:
+            correctLetters = correctLetters + guess
+            print('You got the letter correct!')
+            if len(secretWord) == len(correctLetters):
+                print('Oh my god! You are so good at guessing aircraft stuff. You are a good person!')
+                break
             
-    else:
-        print('Failiure management always needed you!')
-        missedLetters = missedLetters + guess
-        if len(missedLetters) >= 6:
-            print('You suck. You lost. Ha Ha! You will never beat me >:)')
-            break
+        else:
+            print('Failiure management always needed you!')
+            missedLetters = missedLetters + guess
+            if len(missedLetters) >= 6:
+                print('You suck. You lost. Ha Ha! You will never beat me >:)')
+                break
+            
 
-print('Thank you for playing! The word was: ' + secretWord + "!")
+    print('Thank you for playing! The word was: ' + secretWord + "!")
+    print('Would you like to play again? Press y to continue :)')
+    if input() == "y":
+        main()
+main()
