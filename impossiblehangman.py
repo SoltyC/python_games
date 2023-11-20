@@ -37,8 +37,22 @@ HANGMAN_PICS = ['''
     O   |
    /|\  |
    / \  |
-       ===''']
+       ===''', '''
+    +---+
+    O   |
+   /|\  |
+  _/ \_ |
+       ===''', '''
+    +---+
+    O   |
+   ~|~  |
+    |   |
+    %  === 
+OUCH! WHY ARE YOU SO TRASH??!!''']
+
 words = 'airport airbus boeing python lockheed stealth jet fighter pilot fuel sky gear glide navigation wing flight'.split()
+
+guessLimit = 9
 
 def getRandomWord(wordList):
     wordIndex = random.randint(0, len(wordList) - 1)
@@ -46,8 +60,8 @@ def getRandomWord(wordList):
 
 def displayBoard(missedLetters, correctLetters, secretWord):
     misses = len(missedLetters)
-    if misses > 6:
-        misses = 6
+    if misses > guessLimit:
+        misses = guessLimit
     print(HANGMAN_PICS[misses])
     print()
     print("_ " * len(secretWord))
@@ -83,7 +97,7 @@ def main():
         else:
             print('Failiure management always needed you!')
             missedLetters = missedLetters + guess
-            if len(missedLetters) >= 6:
+            if len(missedLetters) >= guessLimit:
                 print('You suck. You lost. Ha Ha! You will never beat me >:)')
                 break
             
