@@ -72,7 +72,7 @@ def main():
     while True:
         displayBoard(missedLetters, correctLetters, secretWord)
         print('Hey! What letter is next?')
-        guess = input()
+        guess = input().lower()
         if len(guess) > 0 and guess in secretWord:
             correctLetters = correctLetters + guess
             print('You got the letter correct!')
